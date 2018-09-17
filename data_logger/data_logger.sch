@@ -71,13 +71,13 @@ $EndComp
 $Comp
 L Device:R R?
 U 1 1 5B9F2FC0
-P 7300 2300
-F 0 "R?" H 7370 2346 50  0000 L CNN
-F 1 "10K" H 7370 2255 50  0000 L CNN
-F 2 "" V 7230 2300 50  0001 C CNN
-F 3 "~" H 7300 2300 50  0001 C CNN
-	1    7300 2300
-	1    0    0    -1  
+P 6650 2200
+F 0 "R?" V 6443 2200 50  0000 C CNN
+F 1 "10K" V 6534 2200 50  0000 C CNN
+F 2 "" V 6580 2200 50  0001 C CNN
+F 3 "~" H 6650 2200 50  0001 C CNN
+	1    6650 2200
+	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R?
@@ -94,11 +94,6 @@ Wire Wire Line
 	6850 2600 6650 2600
 Wire Wire Line
 	7150 2600 7300 2600
-Wire Wire Line
-	7300 2600 7300 2450
-Wire Wire Line
-	7300 2600 7300 2750
-Connection ~ 7300 2600
 $Comp
 L power:GND #PWR?
 U 1 1 5B9F342B
@@ -127,10 +122,8 @@ Text Label 10050 2150 0    50   ~ 0
 VDD
 Wire Wire Line
 	9900 2150 10050 2150
-Text Label 7300 2000 2    50   ~ 0
+Text Label 6500 1900 2    50   ~ 0
 VDD
-Wire Wire Line
-	7300 2000 7300 2150
 Wire Wire Line
 	4950 2300 4950 1400
 Wire Wire Line
@@ -206,4 +199,180 @@ Wire Wire Line
 	2650 4500 2650 4650
 Wire Wire Line
 	2950 4500 3250 4500
+$Comp
+L Sensor_Temperature:BD1020HFV U?
+U 1 1 5B9F57E0
+P 2100 3100
+F 0 "U?" H 2100 3467 50  0000 C CNN
+F 1 "BD1020HFV" H 2100 3376 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:HVSOF5" H 2100 2700 50  0001 C CNN
+F 3 "http://rohmfs.rohm.com/en/products/databook/datasheet/ic/sensor/temperature/bd1020hfv-e.pdf" H 2100 3100 50  0001 C CNN
+	1    2100 3100
+	1    0    0    -1  
+$EndComp
+Text Label 1550 2700 0    50   ~ 0
+VDD
+Wire Wire Line
+	1550 3000 1700 3000
+Wire Wire Line
+	1550 2700 1550 3000
+$Comp
+L power:GND #PWR?
+U 1 1 5B9F6328
+P 2500 3350
+F 0 "#PWR?" H 2500 3100 50  0001 C CNN
+F 1 "GND" H 2505 3177 50  0000 C CNN
+F 2 "" H 2500 3350 50  0001 C CNN
+F 3 "" H 2500 3350 50  0001 C CNN
+	1    2500 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 3200 2500 3350
+Wire Wire Line
+	2500 3000 3250 3000
+Wire Wire Line
+	3250 2950 3250 3000
+Connection ~ 3250 3000
+Wire Wire Line
+	1700 3100 1700 3200
+Wire Wire Line
+	1700 3350 2500 3350
+Connection ~ 1700 3200
+Wire Wire Line
+	1700 3200 1700 3350
+Connection ~ 2500 3350
+Text Notes 900  800  0    50   ~ 0
+REMEMBER TO CHECK ALL MAXIMUM VOLTAGE RATINGS\n
+$Comp
+L Connector:USB_B_Micro J?
+U 1 1 5B9F7E9F
+P 2650 5500
+F 0 "J?" H 2705 5967 50  0000 C CNN
+F 1 "USB_B_Micro" H 2705 5876 50  0000 C CNN
+F 2 "" H 2800 5450 50  0001 C CNN
+F 3 "~" H 2800 5450 50  0001 C CNN
+	1    2650 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 5600 3100 5600
+Wire Wire Line
+	3100 5600 3100 4600
+Wire Wire Line
+	3100 4600 3250 4600
+Wire Wire Line
+	2950 5500 3250 5500
+Wire Wire Line
+	3250 5500 3250 4700
+$Comp
+L Device:LED D?
+U 1 1 5B9F95F6
+P 9850 3550
+F 0 "D?" V 9888 3433 50  0000 R CNN
+F 1 "LED" V 9797 3433 50  0000 R CNN
+F 2 "" H 9850 3550 50  0001 C CNN
+F 3 "~" H 9850 3550 50  0001 C CNN
+	1    9850 3550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B9FA85A
+P 9500 3150
+F 0 "R?" H 9570 3196 50  0000 L CNN
+F 1 "R" H 9570 3105 50  0000 L CNN
+F 2 "" V 9430 3150 50  0001 C CNN
+F 3 "~" H 9500 3150 50  0001 C CNN
+	1    9500 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B9FA95C
+P 9500 3600
+F 0 "R?" H 9570 3646 50  0000 L CNN
+F 1 "R" H 9570 3555 50  0000 L CNN
+F 2 "" V 9430 3600 50  0001 C CNN
+F 3 "~" H 9500 3600 50  0001 C CNN
+	1    9500 3600
+	1    0    0    -1  
+$EndComp
+Text Label 9500 2750 0    50   ~ 0
+VDD
+Wire Wire Line
+	9500 2750 9500 3000
+Wire Wire Line
+	9500 3300 9500 3400
+$Comp
+L power:GND #PWR?
+U 1 1 5B9FBDFD
+P 9500 4000
+F 0 "#PWR?" H 9500 3750 50  0001 C CNN
+F 1 "GND" H 9505 3827 50  0000 C CNN
+F 2 "" H 9500 4000 50  0001 C CNN
+F 3 "" H 9500 4000 50  0001 C CNN
+	1    9500 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 4050 9500 4000
+Connection ~ 9500 4000
+Wire Wire Line
+	9500 4000 9500 3900
+Wire Wire Line
+	9500 3900 9850 3900
+Wire Wire Line
+	9850 3900 9850 3700
+Connection ~ 9500 3900
+Wire Wire Line
+	9500 3900 9500 3750
+Wire Wire Line
+	9850 3400 9500 3400
+Connection ~ 9500 3400
+Wire Wire Line
+	9500 3400 9500 3450
+Text Notes 9600 2900 0    50   ~ 0
+Power Indicator
+Text Notes 2100 6100 0    50   ~ 0
+Look up how the USB connector has to be set up
+Text Notes 900  1300 0    50   ~ 0
+Possible Sensors\nBarometer\nLux\n
+$Comp
+L Connector:Micro_SD_Card J?
+U 1 1 5B9FE1CF
+P 9900 5250
+F 0 "J?" H 9850 5967 50  0000 C CNN
+F 1 "Micro_SD_Card" H 9850 5876 50  0000 C CNN
+F 2 "" H 11050 5550 50  0001 C CNN
+F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 9900 5250 50  0001 C CNN
+	1    9900 5250
+	1    0    0    -1  
+$EndComp
+Text Notes 9450 6150 0    50   ~ 0
+Needs Crystal\n
+Text Notes 9350 1000 0    50   ~ 0
+WiFi/Bluetooth/RF module\n
+Text Notes 6650 1850 0    50   ~ 0
+Needs to be modified so it can\nbe pulled high when programming\n\n
+Wire Wire Line
+	7300 2600 7300 2750
+$Comp
+L Switch:SW_Push_Open SW?
+U 1 1 5B9FE51E
+P 7700 2400
+F 0 "SW?" V 7654 2477 50  0000 L CNN
+F 1 "SW_Push_Open" V 7745 2477 50  0000 L CNN
+F 2 "" H 7700 2600 50  0001 C CNN
+F 3 "" H 7700 2600 50  0001 C CNN
+	1    7700 2400
+	0    1    1    0   
+$EndComp
+Connection ~ 7300 2600
+Wire Wire Line
+	7300 2600 7700 2600
+Wire Wire Line
+	6800 2200 7700 2200
+Wire Wire Line
+	6500 1900 6500 2200
 $EndSCHEMATC
