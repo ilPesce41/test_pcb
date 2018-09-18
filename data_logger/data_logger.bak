@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:data_logger-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -71,13 +72,13 @@ $EndComp
 $Comp
 L Device:R R?
 U 1 1 5B9F2FC0
-P 7300 2300
-F 0 "R?" H 7370 2346 50  0000 L CNN
-F 1 "10K" H 7370 2255 50  0000 L CNN
-F 2 "" V 7230 2300 50  0001 C CNN
-F 3 "~" H 7300 2300 50  0001 C CNN
-	1    7300 2300
-	1    0    0    -1  
+P 6650 2200
+F 0 "R?" V 6450 2200 50  0000 C CNN
+F 1 "10K" V 6534 2200 50  0000 C CNN
+F 2 "" V 6580 2200 50  0001 C CNN
+F 3 "~" H 6650 2200 50  0001 C CNN
+	1    6650 2200
+	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R?
@@ -94,11 +95,6 @@ Wire Wire Line
 	6850 2600 6650 2600
 Wire Wire Line
 	7150 2600 7300 2600
-Wire Wire Line
-	7300 2600 7300 2450
-Wire Wire Line
-	7300 2600 7300 2750
-Connection ~ 7300 2600
 $Comp
 L power:GND #PWR?
 U 1 1 5B9F342B
@@ -127,10 +123,8 @@ Text Label 10050 2150 0    50   ~ 0
 VDD
 Wire Wire Line
 	9900 2150 10050 2150
-Text Label 7300 2000 2    50   ~ 0
+Text Label 6500 1900 2    50   ~ 0
 VDD
-Wire Wire Line
-	7300 2000 7300 2150
 Wire Wire Line
 	4950 2300 4950 1400
 Wire Wire Line
@@ -341,4 +335,89 @@ Wire Wire Line
 	9500 3400 9500 3450
 Text Notes 9600 2900 0    50   ~ 0
 Power Indicator
+Text Notes 2100 6100 0    50   ~ 0
+Look up how the USB connector has to be set up
+Text Notes 1200 1500 0    50   ~ 0
+Possible Sensors\nBarometer (Got one)\n\nLux\n
+$Comp
+L Connector:Micro_SD_Card J?
+U 1 1 5B9FE1CF
+P 9900 5250
+F 0 "J?" H 9850 5967 50  0000 C CNN
+F 1 "Micro_SD_Card" H 9850 5876 50  0000 C CNN
+F 2 "" H 11050 5550 50  0001 C CNN
+F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 9900 5250 50  0001 C CNN
+	1    9900 5250
+	1    0    0    -1  
+$EndComp
+Text Notes 9450 6150 0    50   ~ 0
+Needs Crystal\n
+Text Notes 9350 1000 0    50   ~ 0
+WiFi/Bluetooth/RF module\n
+Text Notes 6650 1850 0    50   ~ 0
+Needs to be modified so it can\nbe pulled high when programming\n\n
+Wire Wire Line
+	7300 2600 7300 2750
+$Comp
+L Switch:SW_Push_Open SW?
+U 1 1 5B9FE51E
+P 7700 2400
+F 0 "SW?" V 7654 2477 50  0000 L CNN
+F 1 "SW_Push_Open" V 7745 2477 50  0000 L CNN
+F 2 "" H 7700 2600 50  0001 C CNN
+F 3 "" H 7700 2600 50  0001 C CNN
+	1    7700 2400
+	0    1    1    0   
+$EndComp
+Connection ~ 7300 2600
+Wire Wire Line
+	7300 2600 7700 2600
+Wire Wire Line
+	6800 2200 7700 2200
+Wire Wire Line
+	6500 1900 6500 2200
+$Comp
+L Custom_Symbols:MS5637 U?
+U 1 1 5BA062B8
+P 3150 1400
+F 0 "U?" H 3150 1515 50  0000 C CNN
+F 1 "MS5637" H 3150 1424 50  0000 C CNN
+F 2 "" H 3150 1400 50  0001 C CNN
+F 3 "" H 3150 1400 50  0001 C CNN
+	1    3150 1400
+	1    0    0    -1  
+$EndComp
+Text Label 3850 1600 0    50   ~ 0
+VDD
+Text Label 6800 3800 0    50   ~ 0
+SDA
+Wire Wire Line
+	6800 3800 6650 3800
+Text Label 6800 3900 0    50   ~ 0
+SCL
+Wire Wire Line
+	6800 3900 6650 3900
+Text Label 2700 1600 2    50   ~ 0
+SDA
+Text Label 2550 1850 0    50   ~ 0
+SCL
+Wire Wire Line
+	3550 1600 3850 1600
+Wire Wire Line
+	2600 1600 2750 1600
+Wire Wire Line
+	2550 1850 2750 1850
+$Comp
+L power:GND #PWR?
+U 1 1 5BA215B2
+P 3850 1850
+F 0 "#PWR?" H 3850 1600 50  0001 C CNN
+F 1 "GND" H 3855 1677 50  0000 C CNN
+F 2 "" H 3850 1850 50  0001 C CNN
+F 3 "" H 3850 1850 50  0001 C CNN
+	1    3850 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 1850 3550 1850
 $EndSCHEMATC

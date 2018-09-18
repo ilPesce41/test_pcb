@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:data_logger-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -72,7 +73,7 @@ $Comp
 L Device:R R?
 U 1 1 5B9F2FC0
 P 6650 2200
-F 0 "R?" V 6443 2200 50  0000 C CNN
+F 0 "R?" V 6450 2200 50  0000 C CNN
 F 1 "10K" V 6534 2200 50  0000 C CNN
 F 2 "" V 6580 2200 50  0001 C CNN
 F 3 "~" H 6650 2200 50  0001 C CNN
@@ -336,8 +337,6 @@ Text Notes 9600 2900 0    50   ~ 0
 Power Indicator
 Text Notes 2100 6100 0    50   ~ 0
 Look up how the USB connector has to be set up
-Text Notes 900  1300 0    50   ~ 0
-Possible Sensors\nBarometer\nLux\n
 $Comp
 L Connector:Micro_SD_Card J?
 U 1 1 5B9FE1CF
@@ -375,4 +374,140 @@ Wire Wire Line
 	6800 2200 7700 2200
 Wire Wire Line
 	6500 1900 6500 2200
+$Comp
+L Custom_Symbols:MS5637 U?
+U 1 1 5BA062B8
+P 3150 1400
+F 0 "U?" H 3150 1515 50  0000 C CNN
+F 1 "MS5637" H 3150 1424 50  0000 C CNN
+F 2 "barometer custom" H 3150 1400 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/418/NG_DS_MS5637-02BA03_B1-1130139.pdf" H 3150 1400 50  0001 C CNN
+	1    3150 1400
+	1    0    0    -1  
+$EndComp
+Text Label 3850 1600 0    50   ~ 0
+VDD
+Text Label 6800 3800 0    50   ~ 0
+SDA
+Wire Wire Line
+	6800 3800 6650 3800
+Text Label 6800 3900 0    50   ~ 0
+SCL
+Wire Wire Line
+	6800 3900 6650 3900
+Text Label 2700 1600 2    50   ~ 0
+SDA
+Text Label 2550 1850 0    50   ~ 0
+SCL
+Wire Wire Line
+	3550 1600 3850 1600
+Wire Wire Line
+	2600 1600 2750 1600
+Wire Wire Line
+	2550 1850 2750 1850
+$Comp
+L power:GND #PWR?
+U 1 1 5BA215B2
+P 3850 1850
+F 0 "#PWR?" H 3850 1600 50  0001 C CNN
+F 1 "GND" H 3855 1677 50  0000 C CNN
+F 2 "" H 3850 1850 50  0001 C CNN
+F 3 "" H 3850 1850 50  0001 C CNN
+	1    3850 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 1850 3550 1850
+$Comp
+L Mechanical:MountingHole_Pad MH?
+U 1 1 5BA25681
+P 1700 4000
+F 0 "MH?" H 2000 4000 50  0000 R CNN
+F 1 "PRV" H 2000 4100 50  0000 R CNN
+F 2 "" H 1700 4000 50  0001 C CNN
+F 3 "~" H 1700 4000 50  0001 C CNN
+	1    1700 4000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad MH?
+U 1 1 5BA25850
+P 1900 4000
+F 0 "MH?" H 1800 3958 50  0000 R CNN
+F 1 "PRG" H 1800 4050 50  0000 R CNN
+F 2 "" H 1900 4000 50  0001 C CNN
+F 3 "~" H 1900 4000 50  0001 C CNN
+	1    1900 4000
+	-1   0    0    1   
+$EndComp
+Text Label 1200 3550 0    50   ~ 0
+VDD
+Wire Wire Line
+	1200 3550 1700 3550
+Wire Wire Line
+	1700 3550 1700 3900
+$Comp
+L Device:R R?
+U 1 1 5BA2875E
+P 2250 3800
+F 0 "R?" H 2320 3846 50  0000 L CNN
+F 1 "R" H 2320 3755 50  0000 L CNN
+F 2 "" V 2180 3800 50  0001 C CNN
+F 3 "~" H 2250 3800 50  0001 C CNN
+	1    2250 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1900 3900 1900 3800
+Wire Wire Line
+	1900 3800 2100 3800
+$Comp
+L power:GND #PWR?
+U 1 1 5BA3000B
+P 2500 3850
+F 0 "#PWR?" H 2500 3600 50  0001 C CNN
+F 1 "GND" H 2505 3677 50  0000 C CNN
+F 2 "" H 2500 3850 50  0001 C CNN
+F 3 "" H 2500 3850 50  0001 C CNN
+	1    2500 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 3850 2500 3800
+Wire Wire Line
+	2500 3800 2400 3800
+Wire Wire Line
+	1900 3800 1900 3650
+Wire Wire Line
+	1900 3650 3150 3650
+Wire Wire Line
+	3150 3650 3150 3100
+Wire Wire Line
+	3150 3100 3250 3100
+Connection ~ 1900 3800
+Text Notes 1200 4300 0    50   ~ 0
+Pins for Photoresister\nDiameter still needs modification
+Wire Wire Line
+	2650 5900 4950 5900
+Wire Wire Line
+	4950 5900 4950 5550
+Connection ~ 4950 5550
+$Comp
+L power:+5V #PWR?
+U 1 1 5BA3B6F3
+P 1850 4950
+F 0 "#PWR?" H 1850 4800 50  0001 C CNN
+F 1 "+5V" H 1865 5123 50  0000 C CNN
+F 2 "" H 1850 4950 50  0001 C CNN
+F 3 "" H 1850 4950 50  0001 C CNN
+	1    1850 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 4950 2950 5300
+Wire Wire Line
+	1850 4950 2950 4950
+Wire Wire Line
+	2550 5900 2650 5900
+Connection ~ 2650 5900
 $EndSCHEMATC
